@@ -1,0 +1,391 @@
+{
+  "info": {
+    "_postman_id": "0bd8392c-5bed-4249-b5de-ec5728cb42ac",
+    "name": "Baozi Store API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "19135360"
+  },
+  "item": [
+    {
+      "name": "01 - Clientes",
+      "item": [
+        {
+          "name": "Criar Cliente",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status HTTP é 201 Created\", function () {\n    pm.response.to.have.status(201);\n});\n\npm.test(\"Resposta em JSON contém ID gerado\", function () {\n    const data = pm.response.json();\n    pm.expect(data).to.have.property(\"id\");\n    pm.environment.set(\"cliente_id\", data.id);\n});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"nome\": \"Rafael5239095\",\n    \"clienteDesde\": \"2026-11-24\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/clientes",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "clientes"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Listar Clientes",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/clientes",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "clientes"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Consultar Cliente por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/clientes/{{cliente_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "clientes",
+                "{{cliente_id}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Atualizar Cliente",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"nome\": \"Rafael5239095\",\n    \"clienteDesde\": \"2026-11-24\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/clientes/{{cliente_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "clientes",
+                "{{cliente_id}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Apagar Cliente",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/clientes/{{cliente_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "clientes",
+                "{{cliente_id}}"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "02 - Produtos",
+      "item": [
+        {
+          "name": "Criar Produto",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status HTTP é 201 Created\", function () {\n    pm.response.to.have.status(201);\n});\n\npm.test(\"Resposta em JSON contém ID gerado\", function () {\n    const data = pm.response.json();\n    pm.expect(data).to.have.property(\"id\");\n    pm.environment.set(\"produto_id\", data.id);\n});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"nome\": \"Baozi Tradicional de Carne Suína\",\n    \"preco\": 12.50,\n    \"estoque\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/produtos",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "produtos"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Listar Produtos",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/produtos",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "produtos"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Consultar Produto por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/produtos/{{produto_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "produtos",
+                "{{produto_id}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Atualizar Produto",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"nome\": \"Baozi Tradicional de Carne Suína\",\n    \"preco\": 14.00,\n    \"estoque\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/produtos/{{produto_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "produtos",
+                "{{produto_id}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Apagar Produto",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/produtos/{{produto_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "produtos",
+                "{{produto_id}}"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "03 - Pedidos",
+      "item": [
+        {
+          "name": "Criar Pedido",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status HTTP é 201 Created\", function () {\n    pm.response.to.have.status(201);\n});\n\npm.test(\"Resposta em JSON contém ID gerado\", function () {\n    const data = pm.response.json();\n    pm.expect(data).to.have.property(\"id\");\n    pm.environment.set(\"pedido_id\", data.id);\n});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"clienteId\": {{cliente_id}},\n    \"produtoId\": {{produto_id}},\n    \"quantidade\": 3\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/pedidos",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "pedidos"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Listar Pedidos",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/pedidos",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "pedidos"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Consultar Pedido por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/pedidos/{{pedido_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "pedidos",
+                "{{pedido_id}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Atualizar Pedido",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"clienteId\": {{cliente_id}},\n    \"produtoId\": {{produto_id}},\n    \"quantidade\": 5\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/pedidos/{{pedido_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "pedidos",
+                "{{pedido_id}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Apagar Pedido",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/pedidos/{{pedido_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "pedidos",
+                "{{pedido_id}}"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
